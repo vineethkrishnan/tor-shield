@@ -1,0 +1,14 @@
+{
+  "packages": {
+    ".": {
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "simple",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "prerelease": false,
+      "extra-files": [
+        "version.txt"
+      ]
+    }
+  }
+}
