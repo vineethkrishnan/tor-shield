@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.0](https://github.com/vineethkrishnan/tor-shield/compare/v1.0.0...v1.1.0) (2026-02-25)
+
+
+### Features
+
+* **core:** open source production readiness release ([18f7a47](https://github.com/vineethkrishnan/tor-shield/commit/18f7a4736bd6d7a8188be9f170a0e48d3314f99d))
+
+## Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
