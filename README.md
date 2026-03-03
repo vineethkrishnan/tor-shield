@@ -96,7 +96,7 @@ tor-firewall/
 | File | Purpose |
 |------|---------|
 | `setup.sh` | Downloads from official Tor sources, merges into persistent files, invokes the supplementary scraper, builds ipsets, applies iptables rules, persists state. Full backup/rollback on failure. |
-| `additional-tor-nodes.sh` | Scrapes dan.me.uk/tornodes for broader relay coverage. Appends missing IPs to the persistent files. Called automatically by `setup.sh`. |
+| `additional-tor-nodes.sh` | Scrapes dan.me.uk/tornodes for broader relay coverage (specifically filtering for Exit nodes). Appends missing IPs to the persistent files. Called automatically by `setup.sh`. |
 | `tor_exit_nodes.txt` | One IPv4 address per line. Accumulates across runs — never truncated, only appended. |
 | `tor_ipv6_exits.txt` | One IPv6 address per line. Same append-only behaviour. |
 

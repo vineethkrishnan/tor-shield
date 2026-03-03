@@ -66,15 +66,15 @@ EOF
 </body></html>
 EOF
 
-  run python3 "${SCRIPT_DIR}/src/scrape_dan_nodes.py" "$mock_html" "$output_file"
+  run python3 "${SCRIPT_DIR}/src/scrape_dan_nodes.py" "$mock_html" "$output_file" --filter-flag Exit
   [ "$status" -eq 0 ]
   
   local line_count=$(wc -l < "$output_file" | tr -d ' ')
-  [ "$line_count" -eq 2 ]
+  [ "$line_count" -eq 1 ]
   
   run grep "10.0.0.1" "$output_file"
   [ "$status" -eq 0 ]
   
   run grep "2001:db8::10" "$output_file"
-  [ "$status" -eq 0 ]
+  [ "$status" -eq 1 ]
 }

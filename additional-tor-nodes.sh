@@ -80,7 +80,7 @@ main() {
 
   echo "[additional-tor-nodes] Extracting IP addresses from page..."
 
-  python3 "${SCRIPT_DIR}/src/scrape_dan_nodes.py" "$TMP_HTML" "$TMP_EXTRACTED"
+  python3 "${SCRIPT_DIR}/src/scrape_dan_nodes.py" "$TMP_HTML" "$TMP_EXTRACTED" --filter-flag Exit
 
   if [[ ! -s "$TMP_EXTRACTED" ]]; then
     echo "[additional-tor-nodes] ERROR: No IPs extracted. Aborting."

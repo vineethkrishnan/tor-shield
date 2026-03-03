@@ -1,13 +1,17 @@
+import argparse
 import sys
 import re
 
 def main() -> None:
-    if len(sys.argv) < 3:
-        print("Usage: scrape_dan_nodes.py <input_html> <output_txt>")
-        sys.exit(1)
-        
-    html_path = sys.argv[1]
-    out_path  = sys.argv[2]
+    parser = argparse.ArgumentParser(description="Extract Tor nodes from dan.me.uk HTML.")
+    parser.add_argument("input_html", help="Path to the downloaded HTML file")
+    parser.add_argument("output_txt", help="Path to write the extracted IPs")
+    parser.add_argument("--filter-flag", help="Only extract nodes that have this flag in flags_str (e.g., 'Exit')", default=None)
+    args = parser.parse_args()
+
+    html_path = args.input_html
+    out_path  = args.output_txt
+    filter_flag = args.filter_flag
 
     with open(html_path, "r", encoding="utf-8", errors="replace") as f:
         content = f.read()
@@ -35,14 +39,22 @@ def main() -> None:
         fields = row.split("|")
         if not fields:
             continue
+            
         ip = fields[0].strip()
         if not ip:
             continue
+            
+        if filter_flag and len(fields) >= 5:
+            flags_str = fields[4]
+            # Since flags like 'Exit' are distinct strings, an 'in' check is safe and covers 'Exit,Fast,Valid'
+            if filter_flag not in flags_str:
+                continue
+
         ips.append(ip)
 
     with open(out_path, "w") as f:
         for ip in ips:
-            f.write(ip + "\n")
+            f.write(f"{ip}\n")
 
     print(f"[additional-tor-nodes] Extracted {len(ips)} IP addresses.")
 
