@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/vineethkrishnan/tor-shield/compare/v1.1.0...v1.2.0) (2026-03-03)
+
+
+### Features
+
+* **scrape:** filter nodes by exit flag ([4a16565](https://github.com/vineethkrishnan/tor-shield/commit/4a16565f90ee6a23aa4c867f400ccb101f4e15d4))
+
 ## [1.1.0](https://github.com/vineethkrishnan/tor-shield/compare/v1.0.0...v1.1.0) (2026-02-25)
 
 
